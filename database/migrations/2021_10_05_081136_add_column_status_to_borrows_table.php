@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBorrowDetailsTable extends Migration
+class AddColumnStatusToBorrowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateBorrowDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('borrow_details', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('borrows', function (Blueprint $table) {
+            $table->string('status');
         });
     }
 
@@ -26,6 +25,8 @@ class CreateBorrowDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('borrow_details');
+        Schema::table('borrows', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -45,6 +45,7 @@
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
+
                                 <div class="form-group">
                                     <lable>Role</lable><strong class="text-danger">*</strong>
                                     @foreach($roles as $role)
@@ -56,6 +57,7 @@
                                         </div>
                                     @endforeach
                                 </div>
+
                                 <div class="form-group">
                                     <lable>Mật khẩu</lable><strong class="text-danger">*</strong>
                                     <input type="password" class="form-control" name="password">

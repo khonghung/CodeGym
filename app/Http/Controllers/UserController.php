@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\View;
+use App\Http\Requests\CreateUserRequest;
 
-class UserController extends Controller implements BaseInterface, UserInterface
+class UserController extends Controller implements UserInterface, BaseInterface
 {
     private $userModel;
 
@@ -21,9 +21,12 @@ class UserController extends Controller implements BaseInterface, UserInterface
 
     function index()
     {
-        $users = User::all();
-        return view('users.list', compact('users'));
-
+        if (Gate::allows('user-crud')) {
+            $users = User::all();
+            return ;
+        } else {
+            abort(403);
+        }
     }
 
     function detail($id)
@@ -33,27 +36,27 @@ class UserController extends Controller implements BaseInterface, UserInterface
 
     function getComment($idUser, $idComment = 1)
     {
-
     }
 
     function create()
     {
-        $roles = Role::all();
-        return \view('users.add', compact('roles'));
+        if (Gate::allows('user-crud')) {
+            $roles = Role::all();
+            return view('users.add', compact('roles'));
+        } else {
+            abort(403);
+        }
     }
 
-    function delete($id)
+    function destroy($id)
     {
         $user = User::findOrFail($id);
         $user->roles()->detach();
         $user->delete();
-        return response()->json(['message' => 'Delete successfully']);
+        return redirect()->route('users.index');
     }
 
-    function getPostOfUser($idUser)
-    {
-        // TODO: Implement getPostOfUser() method.
-    }
+
 
     function store(CreateUserRequest $request)
     {
@@ -66,18 +69,17 @@ class UserController extends Controller implements BaseInterface, UserInterface
             $user->save();
             $user->roles()->sync($request->role);
             DB::commit();
-        }catch (\Exception $exception) {
-            DB::rollBack();
+        } catch (\Exception $exception) {
+            DB::rollback();
         }
         return redirect()->route('users.index');
-
     }
 
     function update($id)
     {
         $user = User::findOrFail($id);
         $roles = Role::all();
-        return \view('users.update', compact('user', 'roles'));
+        return view('users.update', compact('user', 'roles'));
     }
 
     function edit(Request $request, $id)
@@ -90,16 +92,18 @@ class UserController extends Controller implements BaseInterface, UserInterface
             $user->save();
             $user->roles()->sync($request->role);
             DB::commit();
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             DB::rollBack();
         }
 
         return redirect()->route('users.index');
     }
 
-    function search(Request $request) {
+    function search(Request $request)
+    {
         $keyword = $request->keyword;
         $users = User::where('name', 'LIKE', '%' . $keyword . '%')->get();
         return response()->json($users);
     }
+
 }

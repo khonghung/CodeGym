@@ -3,11 +3,14 @@
 
 namespace App\Http\Services;
 
-
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginService
 {
+
+
+
     function checkLogin($request)
     {
         $email = $request->email;
@@ -17,7 +20,6 @@ class LoginService
             'email' => $email,
             'password' => $password
         ];
-
 
         return Auth::attempt($credentials);
 

@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Http\Controllers\BookConstant;
 use App\Models\Book;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
+use App\Http\Controllers\BookConstant;
 
 class BooksSeeder extends Seeder
 {
@@ -39,6 +38,5 @@ class BooksSeeder extends Seeder
         $book->status = BookConstant::BOOK_BORROWED;
         $book->price = "200000";
         $book->save();
-
     }
 }

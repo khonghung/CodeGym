@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Student;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class StudentsSeeder extends Seeder
@@ -25,7 +24,6 @@ class StudentsSeeder extends Seeder
         $student = new Student();
         $student->name = "Nguyen Van Nam";
         $student->student_code = "CG0002";
-
         $student->email = "nam@gmail.com";
         $student->phone = "088989892";
         $student->save();

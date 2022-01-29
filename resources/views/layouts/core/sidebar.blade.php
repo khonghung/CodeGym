@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('home.index') }}" class="brand-link">
-        <img src="{{ asset('img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="{{ route('books.index') }}" class="brand-link">
+        <img src="{{ asset('storage/images/logo.png') }}" alt="" width="100%">
+        <span class="brand-text font-weight-light"></span>
     </a>
 
     <!-- Sidebar -->
@@ -18,7 +18,7 @@
         </div>
 
         <!-- SidebarSearch Form -->
-        <div class="form-inline">
+        {{-- <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
                 <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                 <div class="input-group-append">
@@ -27,14 +27,15 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column show" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column show" data-widget="treeview" role="menu"
+                data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
+                {{-- <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -43,28 +44,33 @@
                         </p>
                     </a>
 
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Quản lý người dùng
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('users.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sach người dùng</p>
-                            </a>
-                        </li>
+                </li> --}}
+                @can('user-crud')
+                    <li class="nav-item">
 
-                    </ul>
-                </li>
+                        <a href="" class="nav-link">
+                            <img src="{{ asset('storage/images/user.png') }}" alt="" width="30px" height="30px">
+                            {{-- <i class="nav-icon fas fa-copy"></i> --}}
+                            <p>
+                                Quản lý người dùng
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('users.index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sach người dùng</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <img src="{{ asset('storage/images/book.png') }}" alt="" width="30px" height="30px">
+                        {{-- <i class="nav-icon fas fa-chart-pie"></i> --}}
                         <p>
                             Quản lý sách
                             <i class="right fas fa-angle-left"></i>
@@ -72,17 +78,17 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('books.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách sách</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
+                        <img src="{{ asset('storage/images/bookCategory.png') }}" alt="" width="30px" height="30px">
+                        {{-- <i class="nav-icon fas fa-tree"></i> --}}
                         <p>
                             Quản lý thể loại sách
                             <i class="fas fa-angle-left right"></i>
@@ -90,13 +96,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
+                            <a href="{{ route('categories.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách thể loại sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('categories.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm mới thể loại</p>
                             </a>
@@ -104,9 +110,39 @@
 
                     </ul>
                 </li>
+
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                        <img src="{{ asset('storage/images/bookCategory.png') }}" alt="" width="30px" height="30px">
+                        {{-- <i class="nav-icon fas fa-tree"></i> --}}
+                        <p>
+                            Quản lý sinh vien
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('students.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách sinh vien</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('students.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm mới sinh vien </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <img src="{{ asset('storage/images/management.png') }}" alt="" width="30px" height="30px">
+                        {{-- <i class="nav-icon fas fa-edit"></i> --}}
                         <p>
                             Quản lý mượn trả
                             <i class="fas fa-angle-left right"></i>
@@ -114,7 +150,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/forms/general.html" class="nav-link">
+                            <a href="{{ route('borrows.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách phiếu mượn</p>
                             </a>
@@ -127,6 +163,7 @@
                         </li>
                     </ul>
                 </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

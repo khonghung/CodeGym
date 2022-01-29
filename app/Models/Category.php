@@ -9,7 +9,13 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'categories';
+
     function books() {
         return $this->hasMany(Book::class);
+    }
+
+    function totalCategories(){
+        return $this->books->count();
     }
 }

@@ -27,7 +27,7 @@
                             <h3 class="card-title">Thêm mới phiếu mượn</h3>
                         </div>
                         <!-- /.card-header -->
-                        <form action="">
+                        <form action="" method="post">
 
                             @csrf
                             <div class="card-body">
@@ -42,7 +42,7 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="search-student-borrow"
-                                                       placeholder="Tìm tên học sinh, mã học sinh">
+                                                    placeholder="Tìm tên học sinh, mã học sinh">
 
                                             </div>
                                             <ul id="list-student-borrow-search" style="position: absolute;z-index: 1000"
@@ -55,21 +55,21 @@
                                                 <label for="name" class="col-sm-4 col-form-label">Tên học viên</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" name="name"
-                                                           id="name-student-borrow" disabled>
+                                                        id="name-student-borrow" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="email" class="col-sm-4 col-form-label">Email</label>
                                                 <div class="col-sm-8">
                                                     <input type="email" class="form-control" name="email"
-                                                           id="email-student-borrow" disabled>
+                                                        id="email-student-borrow" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="phone" class="col-sm-4 col-form-label">Phone</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" name="phone"
-                                                           id="phone-student-borrow" disabled>
+                                                        id="phone-student-borrow" disabled>
                                                 </div>
                                             </div>
 
@@ -84,10 +84,11 @@
                                                         <i class="fas fa fa-search"></i>
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control" id=""
-                                                       placeholder="Tìm tên sách">
+                                                <input type="text" class="form-control" id="search-book-borrow"
+                                                    placeholder="Tìm tên sách">
                                             </div>
-
+                                            <ul id="list-book-borrow-search" style="position: absolute;z-index: 1000"
+                                                class="list-group"></ul>
                                         </div>
                                         <div class="form-group">
                                             <h6>Danh sách sách</h6>
@@ -97,10 +98,10 @@
                                                     <td>STT</td>
                                                     <td>Tên sách</td>
                                                     <td>Hình ảnh</td>
-                                                    <td></td>
+                                                    <td>Trạng thái</td>
                                                 </tr>
-                                                <tr>
-                                                    <td colspan="4">Vui long chon sach</td>
+                                                <tr id="book-item">
+
                                                 </tr>
                                             </table>
                                         </div>
@@ -118,7 +119,7 @@
                                                     mượn</label>
                                                 <div class="col-sm-8">
                                                     <input type="date" class="form-control" name="borrow_date"
-                                                           id="borrow_date">
+                                                        id="borrow_date">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -126,17 +127,19 @@
                                                     trả</label>
                                                 <div class="col-sm-8">
                                                     <input type="date" class="form-control" name="borrow_return"
-                                                           id="borrow_return">
+                                                        id="borrow_return">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
-                                                <button class="btn btn-success">Cho mượn</button>
+                                                <button class="btn btn-success" type="submit">Cho
+                                                    mượn</button>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <input type="text" id="student-id" name="student_id" >
+                                    <input type="text" id="book-id" name="book_id" >
 
                                 </div>
                             </div>

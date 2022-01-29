@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+    protected $table = 'students';
+
+
+    function borrow(){
+        return $this->belongsTo(Borrow::class);
+    }
+
 }

@@ -38,6 +38,7 @@
                                     <lable>Email</lable>
                                     <input type="email" value="{{ $user->email }}" class="form-control" name="email">
                                 </div>
+
                                 <div class="form-group">
                                     <lable>Role</lable>
                                     <strong class="text-danger">*</strong>
@@ -52,7 +53,7 @@
                                             <label class="form-check-label" for="role-{{$role->id}}">
                                                 {{ $role->name }}
                                             </label>
-                                        </div>
+                                        </div> 
                                     @endforeach
                                 </div>
 

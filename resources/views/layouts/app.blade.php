@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('js/plugins/jqvmap/jqvmap.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/weather.min.css') }}"> --}}
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('js/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Daterange picker -->
@@ -28,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -65,9 +68,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-{{--<script src="{{ asset('js/plugins/jquery/jquery.min.js') }}"></script>--}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<script src="{{ asset('js/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('js/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -131,6 +132,7 @@
     });
 </script>
 <script src="{{ asset('js/my.js') }}"></script>
+<script src="{{ asset('js/weather.js') }}"></script>
 
 </body>
 </html>
