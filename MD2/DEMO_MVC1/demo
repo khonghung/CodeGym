@@ -1,0 +1,43 @@
+b1: tao file index.php
+
+b2: tao file composer.json
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
+
+
+b3; tao thu muc co ten la src    (MVC)
+
+
+
+b4: trong thu muc src(
+    tao 3 thu muc con ()
+)
+
+
+b5: vao terminal tao cau lenh
+
+////  composer install ///
+
+
+b6: tao DB tuy muc dich su dung
+
+
+b7: - vao Models tao file DBconnect de ket noi voi noi DB vua tao 
+
+- lay thong tin trong bang cua DB
+
+
+b8: vao Controller() tao file  // nameController (dat ten name theo ten bang cua DB) // 
+
+
+
+b9: Trong thu muc Views tao file add, file list, file delete ,......
+
+
+b10 : trong index require cau lenh autoload cac ham de hien thi 
+

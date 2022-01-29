@@ -1,0 +1,26 @@
+- Controller:
++ ten class va ten file luon giong nhau 
++ Ten class luon co Controller o cuoi cung 
+Ex: ProductController(class name) -> ProductController.php (file name)
+
+
+- Models:
++ Giong Controller nhung khac o ten co dinh la Model
+Ex: UserModel(class name) -> UserModel.php (file name)
+
+
+
+-View 
++ Ten cua file view nen giong voi ten method trong file view do
+Ex: Method trong controller la index -> ten file view se la index.php
+
+- ten thu muc View nen giong voi controller o dang so nhieu 
+Ex: UserController -> folder view la users
+
+-Param Name: 
++ controller: qui dinh goi vao controller nao. Name phai trung ten voi Controller Name
+Ex: UserController -> Param controller : user
+    ProductController -> Param controller : product
+
++ action : Qui dinh goi vao method nao. Truong hop khong co -> mac dinh action la index
+
